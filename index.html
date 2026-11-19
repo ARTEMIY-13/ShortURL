@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <link rel="icon" type="image/svg+xml" href="/ShortURL/vite.svg" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ShortURL</title>
+    <script>
+      // Відновлюємо адресу після перенаправлення з 404.html (GitHub Pages)
+      (function (l) {
+        if (l.search[1] === '/') {
+          var d = l.search.slice(1).split('&').map(function (s) { return s.replace(/~and~/g, '&') }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + d + l.hash);
+        }
+      })(window.location);
+      // Застосовуємо збережену тему до відображення сторінки, щоб не було блимання
+      try {
+        var t = JSON.parse(localStorage.getItem('theme'));
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/ShortURL/assets/index-CY5aCRcE.js"></script>
+    <link rel="stylesheet" crossorigin href="/ShortURL/assets/index-C-ezPiHk.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
