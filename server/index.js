@@ -60,7 +60,10 @@ app.delete('/api/links/:id', (req, res) => {
 
 // Раздача собранного клиента (после npm run build в корне проекта)
 const dist = path.join(__dirname, '../dist');
-if (fs.existsSync(dist)) app.use(express.static(dist));
+if (fs.existsSync(dist)) {
+  app.use('/ShortURL', express.static(dist));
+  app.get('/ShortURL/*', (req, res) => res.sendFile(path.join(dist, 'index.html')));
+}
 
 // Редирект по короткой ссылке + подсчёт кликов
 app.get('/:slug', (req, res, next) => {
