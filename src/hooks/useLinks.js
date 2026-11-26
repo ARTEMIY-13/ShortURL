@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { getLinks, createLink, deleteLink } from '../api.js'
 
+// Список посилань + створення/видалення. Підключимо, коли будемо наповнювати Home і Links.
 export default function useLinks() {
   const [links, setLinks] = useState([])
   const [loadFailed, setLoadFailed] = useState(false)

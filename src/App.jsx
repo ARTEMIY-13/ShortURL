@@ -6,10 +6,12 @@ import Links from './pages/Links.jsx'
 import Company from './pages/Company.jsx'
 import Domens from './pages/Domens.jsx'
 import Settings from './pages/Settings.jsx'
+import Register from './pages/Register.jsx'
 
 export default function App() {
   return (
     <Routes>
+      <Route path="Register" element={<Register />} />
       <Route element={<Layout />}>
         <Route index element={<Navigate to="/Home" replace />} />
         <Route path="Home" element={<Home />} />

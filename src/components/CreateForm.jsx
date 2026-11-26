@@ -22,7 +22,7 @@ export default function CreateForm({ onCreate }) {
     }
   }
 
-  
+  // Помилку зберігаємо як код, тому вона одразу перекладається при зміні мови
   const errorText = errorCode ? t(`err.${errorCode}`) : ''
 
   return (

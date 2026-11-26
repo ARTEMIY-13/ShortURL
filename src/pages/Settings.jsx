@@ -40,6 +40,12 @@ export default function Settings() {
         <div className="pfield"><label htmlFor="p-mail">{t('profile.email')}</label><input id="p-mail" type="email" placeholder="name@example.com" {...field('email')} /></div>
         <div className="pfield"><label>{t('profile.since')}</label><div>{new Date(user.joinedAt).toLocaleDateString(locale)}</div></div>
         <div className="hint">{t('profile.local')}</div>
+        {user.registered && (
+          <button type="button" className="btn" style={{ marginTop: 14 }}
+            onClick={() => updateUser({ registered: false, name: '', username: '', email: '' })}>
+            {t('auth.signOut')}
+          </button>
+        )}
       </section>
     </div>
   )

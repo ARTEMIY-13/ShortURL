@@ -17,7 +17,11 @@ export default function Layout() {
       <main>
         <header className="top">
           <h1>{current ? t(current.key) : ''}</h1>
-          <NavLink to="/Settings" className="av" aria-label={t('nav.profile')}>{initial}</NavLink>
+          {user.registered ? (
+            <NavLink to="/Settings" className="av" aria-label={t('nav.profile')}>{initial}</NavLink>
+          ) : (
+            <NavLink to="/Register" className="btn signin">{t('auth.signIn')}</NavLink>
+          )}
         </header>
         <Outlet />
       </main>

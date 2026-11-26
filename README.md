@@ -10,6 +10,7 @@
 | `/ShortURL/Links` | порожня |
 | `/ShortURL/Company` | порожня (у меню — «Кампанії») |
 | `/ShortURL/Domens` | порожня |
+| `/ShortURL/Register` | реєстрація (zod); необов’язкова — відкривається кнопкою «Увійти» у верхній панелі |
 | `/ShortURL/Settings` | мова, тема (світла / темна / системна), профіль користувача |
 
 Спільний каркас — `src/components/Layout.jsx` (меню `Navigation` + `<Outlet />`). Список сторінок і меню — `src/routes.js`.
@@ -37,6 +38,10 @@ cd server && npm install && npm run dev    # API: http://localhost:3001
 ```
 
 ## Публікація на GitHub Pages
+
+Варіант A (рекомендований): у репозиторії Settings → Pages → Source: **GitHub Actions**. Після кожного `git push` у гілку `main` сайт збирається автоматично (`.github/workflows/deploy.yml`).
+
+Варіант B: вручну.
 
 ```bash
 npm run deploy      # збирає сайт і публікує dist у гілку gh-pages

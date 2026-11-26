@@ -16,6 +16,7 @@ function write(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value))
   } catch {
+    // сховище недоступне — налаштування просто не збережуться
   }
 }
 
@@ -26,7 +27,7 @@ function initialTheme() {
 
 function initialUser() {
   const saved = read('user', {})
-  return { name: '', username: '', email: '', plan: 'Pro', joinedAt: new Date().toISOString(), ...saved }
+  return { name: '', username: '', email: '', plan: 'Pro', registered: false, joinedAt: new Date().toISOString(), ...saved }
 }
 
 export default function SettingsProvider({ children }) {
@@ -34,7 +35,7 @@ export default function SettingsProvider({ children }) {
   const [user, setUser] = useState(initialUser)
 
   useEffect(() => {
-   
+    // «system» — прибираємо атрибут, тема визначається через prefers-color-scheme
     if (theme === 'system') delete document.documentElement.dataset.theme
     else document.documentElement.dataset.theme = theme
     write('theme', theme)
